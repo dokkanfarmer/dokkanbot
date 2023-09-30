@@ -18,10 +18,10 @@ def login(license_key):
 	
 if __name__ == "__main__":
 	license=raw_input('your license key: ')
-	if len(license)<>32:
-		print 'invalid license, you can buy one here placeholder/'
+	if len(license)!=32:
+		print ('invalid license, you can buy one here placeholder/')
 		exit(1)
 	if login(license):
-		print 'you can now use the bot :)'
+		print ('you can now use the bot :)')
 	else:
-		print 'invalid license, you can buy one here placeholder/'
+		print ('invalid license, you can buy one here placeholder/')
