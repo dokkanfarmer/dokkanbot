@@ -2,9 +2,9 @@ import snowmate_collector
 import pathlib
 snowmate_collector.start(
     project_path=str(pathlib.Path("/home/oni/dokkan bot repo")),  
-    project_id=651594d37fd78c9fb3eac42a,
-    client_id=19bfe8b-e8c9-4ac3-8868-82c94eb502fc,
-    secret_key=77e82f20-26b1-413a-b3cd-4c327bef5289,
+    project_id="651594d37fd78c9fb3eac42a",
+    client_id="19bfe8b-e8c9-4ac3-8868-82c94eb502fc",
+    secret_key="77e82f20-26b1-413a-b3cd-4c327bef5289",
 )
 import requests
 import base64
