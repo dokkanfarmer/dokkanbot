@@ -17,7 +17,7 @@ def login(license_key):
 	return 'Welcome ' in r.content
 	
 if __name__ == "__main__":
-	license=raw_input('your license key: ')
+	license=input('your license key: ')
 	if len(license)!=32:
 		print ('invalid license, you can buy one here placeholder/')
 		exit(1)
