@@ -3,8 +3,8 @@ import pathlib
 snowmate_collector.start(
     project_path=str(pathlib.Path("/home/oni/dokkan bot repo")),  
     project_id="651594d37fd78c9fb3eac42a",
-    client_id="19bfe8b-e8c9-4ac3-8868-82c94eb502fc",
-    secret_key="77e82f20-26b1-413a-b3cd-4c327bef5289",
+    client_id="4ec2b424-c87b-41c0-9a7a-b554eeea00d6",
+    secret_key="59148ead-dd9b-4327-822e-e156f0564a5b",
 )
 import requests
 import base64
@@ -25,3 +25,5 @@ if __name__ == "__main__":
 		print ('you can now use the bot :)')
 	else:
 		print ('invalid license, you can buy one here placeholder/')
+
+
