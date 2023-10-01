@@ -11,20 +11,14 @@ jobs:
       - name: 'Python Setup'
         uses: actions/setup-python@v4
         with:
-          python-version: '3.10'  # Replace with your project's Python version
-      - name: 'Install Python Project'
-        ##############################################
-        ####
-        #### Complete your project's installation steps
-        ####
-        ##############################################
+          python-version: '3.10' # Replace with your project's Python version
       - name: 'Install Snowmate Runner'
         run: pip install -i "https://${{ secrets.SNOWMATE_CLIENT_ID }}:${{ secrets.SNOWMATE_SECRET_KEY }}@pypi.snowmate.io/simple" -U snowmate_runner
       - name: 'Run Snowmate Tests'
         uses: snowmate/snowmate-runner-action@latest
         with:
-          project-path: <Relative Project Path>  # If this repo is not a monorepo, insert "." (dot without the apostrophes).
-          project-id: <Project ID>  # Insert your project ID
+          project-path: .
+          project-id: 651594d37fd78c9fb3eac42a
           client-id: ${{ secrets.SNOWMATE_CLIENT_ID }}
           secret-key: ${{ secrets.SNOWMATE_SECRET_KEY }}
           github-token: ${{ secrets.GITHUB_TOKEN }}  # Provided by default by GitHub.
