@@ -1,0 +1,39 @@
+name: 'Snowmate Tests'
+on:
+  pull_request:
+jobs:
+  run-tests:
+    name: Snowmate Run Tests
+    runs-on: ubuntu-20.04
+    steps:
+      - name: 'Git Checkout'
+        uses: actions/checkout@v3
+
+      - name: 'Python Setup'
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'  # Replace with your project's Python version
+
+      - name: 'Install Python Project'
+        run: |
+          ##############################################
+          ####
+          #### Complete your project's installation steps
+          ####
+          ##############################################
+
+      - name: 'Install Snowmate Runner'
+        run: |
+          pip install -i "https://${{ secrets.SNOWMATE_CLIENT_ID }}:${{ secrets.SNOWMATE_SECRET_KEY }}@pypi.snowmate.io/simple" -U snowmate_runner
+
+      - name: 'Run Snowmate Tests'
+        uses: snowmate/snowmate-runner-action@latest
+        with:
+          project-path: <.>  # If this repo is not a monorepo, insert "." (dot without the apostrophes).
+          project-id: <651594d37fd78c9fb3eac42a>  # Insert your project ID
+          client-id: ${{ secrets.SNOWMATE_CLIENT_ID }}
+          secret-key: ${{ secrets.SNOWMATE_SECRET_KEY }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}  # Provided by default by GitHub.
+
+          
+          
