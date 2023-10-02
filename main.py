@@ -8,23 +8,31 @@ snowmate_collector.start(
 )
 import requests
 import base64
-
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
+
+# Disable SSL warnings (only if necessary)
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
+# Function to perform the login operation
 def login(license_key):
-	r=requests.post(base64.b64decode('aHR0cHM6Ly92aXAuZGJ6ZGIucHcv'),data={'license':license_key})
-	return 'Welcome ' in r.content
-	
+    login_url = base64.b64decode('aHR0cHM6Ly92aXAuZGJ6ZGIucHcv')
+    response = requests.post(login_url, data={'license': license_key})
+    return 'Welcome ' in response.content
+
 if __name__ == "__main__":
-	license=input('your license key: ')
-	if len(license)!=32:
-		print ('invalid license, you can buy one here placeholder/')
-		exit(1)
-	if login(license):
-		print ('you can now use the bot :)')
-	else:
-		print("you can get a temporary key")
-		x=input("1.Yes 2.No")
-		
+    license = input('Enter your license key: ')
+
+    if len(license) != 32:
+        print('Invalid license. You can purchase one at: placeholder/')
+        exit(1)
+
+    if login(license):
+        print('You can now use the bot :)')
+    else:
+        print('You can get a temporary key.')
+        choice = input("1. Yes 2. No: ")
+
+        if choice == "1":
+            # Handle temporary key logic here
+            pass
 
