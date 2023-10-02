@@ -20,8 +20,11 @@ if __name__ == "__main__":
 	license=input('your license key: ')
 	if len(license)!=32:
 		print ('invalid license, you can buy one here placeholder/')
+		exit(1)
 	if login(license):
 		print ('you can now use the bot :)')
 	else:
+		print("you can get a temporary key")
+		x=input("1.Yes 2.No")
 		
 
